@@ -9,12 +9,44 @@ import { Input } from "./input";
 export default function LoginFormDemo() {
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
-    // You can add validation or API calls here
-    router.push("/dashboard"); // Navigate to dashboard
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+
+    try {
+      const res = await fetch("http://localhost:3000/api/user/createAccount", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log("Registration successful:", data);
+        // Navigate to dashboard or login page
+        router.push("/dashboard");
+      } else {
+        console.error("Registration failed:", data.message || data.error);
+        alert(data.message || "Registration failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
+
 
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
@@ -26,14 +58,27 @@ export default function LoginFormDemo() {
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
+
+        <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
+          <LabelInputContainer>
+            <Label htmlFor="firstname">First name</Label>
+            <Input id="firstname" name="firstName" placeholder="Tyler" type="text" required/>
+          </LabelInputContainer>
+          <LabelInputContainer>
+            <Label htmlFor="lastname">Last name</Label>
+            <Input id="lastname" name="lastName" placeholder="Durden" type="text" required/>
+          </LabelInputContainer>
+        </div>
+
+
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input id="email" name="email" placeholder="projectmayhem@fc.com" type="email" required/>
         </LabelInputContainer>
 
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input id="password" name="password" placeholder="••••••••" type="password" required/>
         </LabelInputContainer>
 
         <button
