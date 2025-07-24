@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "../../lib/utils";
 import { Label } from "./label";
@@ -8,6 +8,14 @@ import { Input } from "./input";
 
 export default function LoginFormDemo() {
   const router = useRouter();
+
+  // ✅ Redirect if already logged in
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("token"); // check auth status
+    if (isLoggedIn) {
+      router.replace("/dashboard");
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,8 +43,12 @@ export default function LoginFormDemo() {
 
       if (res.ok) {
         console.log("Registration successful:", data);
-        // Navigate to dashboard or login page
-        router.push("/dashboard");
+
+        // ✅ Store token or flag
+        localStorage.setItem("token", data.token || "dummyToken"); // replace with real token
+
+        // ✅ Prevent back navigation
+        router.replace("/dashboard");
       } else {
         console.error("Registration failed:", data.message || data.error);
         alert(data.message || "Registration failed");
@@ -46,7 +58,6 @@ export default function LoginFormDemo() {
       alert("An error occurred. Please try again.");
     }
   };
-
 
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
@@ -58,27 +69,25 @@ export default function LoginFormDemo() {
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
-
         <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" name="firstName" placeholder="Tyler" type="text" required/>
+            <Input id="firstname" name="firstName" placeholder="Tyler" type="text" required />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" name="lastName" placeholder="Durden" type="text" required/>
+            <Input id="lastname" name="lastName" placeholder="Durden" type="text" required />
           </LabelInputContainer>
         </div>
 
-
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" name="email" placeholder="projectmayhem@fc.com" type="email" required/>
+          <Input id="email" name="email" placeholder="projectmayhem@fc.com" type="email" required />
         </LabelInputContainer>
 
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" name="password" placeholder="••••••••" type="password" required/>
+          <Input id="password" name="password" placeholder="••••••••" type="password" required />
         </LabelInputContainer>
 
         <button

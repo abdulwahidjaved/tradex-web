@@ -157,23 +157,29 @@ export const MobileSidebar = ({
 export const SidebarLink = ({
   link,
   className,
+  onClick,
   ...props
 }: {
   link: Links;
   className?: string;
+  onClick?: () => void;
 }) => {
   const { open, animate } = useSidebar();
+
   return (
     <a
       href={link.href}
+      onClick={(e) => {
+        e.preventDefault(); // prevent default nav
+        onClick ? onClick() : (window.location.href = link.href); // fallback to normal nav
+      }}
       className={cn(
-        "flex items-center justify-start gap-2  group/sidebar py-2",
+        "flex items-center justify-start gap-2 group/sidebar py-2",
         className
       )}
       {...props}
     >
       {link.icon}
-
       <motion.span
         animate={{
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
@@ -186,3 +192,4 @@ export const SidebarLink = ({
     </a>
   );
 };
+

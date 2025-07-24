@@ -14,18 +14,17 @@ export default function HeroSection() {
             </div>
             <div className="relative mx-auto pt-32 pb-24 lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 text-center space-y-10">
                 <h1 className="text-gray-900 dark:text-white mx-auto max-w-5xl font-bold text-4xl/tight sm:text-5xl/tight lg:text-6xl/tight xl:text-7xl/tight">
-                    We create, we design, we develop Modern tools.
+                    We Build, We Simulate, We Innovate.
                 </h1>
                 <p className="text-gray-700 dark:text-gray-300 mx-auto max-w-2xl">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt saepe atque enim quasi a ipsum
-                    asperiores necessitatibus deleniti, sint quo vel corporis dignissimos
+                    Experience a smarter way to trade. Our platform combines powerful tools, real-time simulations, and cutting-edge innovation to help you learn, test, and grow in today’s dynamic markets.
                 </p>
                 <div className="flex justify-center items-center flex-wrap mx-auto gap-4">
                     <Link href="#" className="flex items-center h-12 px-6 rounded-full bg-purple-600 text-white border border-purple-600">
-                        Hire us Now
+                        Explore
                     </Link>
                     <Link href="#" className="flex items-center h-12 px-6 rounded-full bg-gray-100 dark:bg-gray-900 text-purple-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800">
-                        Learn more
+                        Login
                     </Link>
                 </div>
                 <div className="text-left grid lg:grid-cols-3 p-6 rounded-2xl bg-gradient-to-tr from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 border border-gray-100 dark:border-gray-800 max-w-2xl lg:max-w-5xl mx-auto lg:divide-x divide-y lg:divide-y-0 divide-gray-300 dark:divide-gray-800">
@@ -39,11 +38,10 @@ export default function HeroSection() {
                         </div>
                         <div className="flex-1 space-y-1">
                             <h2 className="text-gray-900 dark:text-white font-semibold text-lg">
-                                High Quality
+                                Secure Transactions
                             </h2>
                             <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
+                                All trades are protected with top-grade encryption.                            </p>
                         </div>
                     </div>
                     <div className="flex items-start gap-6 lg:px-6 py-6 lg:py-0">
@@ -56,11 +54,10 @@ export default function HeroSection() {
                         </div>
                         <div className="flex-1 space-y-1">
                             <h2 className="text-gray-900 dark:text-white font-semibold text-lg">
-                                High Quality
+                                Real-Time Market Simulation
                             </h2>
                             <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
+                                Practice trading with live market movements.                            </p>
                         </div>
                     </div>
                     <div className="flex items-start gap-6 pt-6 lg:pt-0 lg:pl-6">
@@ -73,10 +70,10 @@ export default function HeroSection() {
                         </div>
                         <div className="flex-1 space-y-1">
                             <h2 className="text-gray-900 dark:text-white font-semibold text-lg">
-                                High Quality
+                                Smart Portfolio Insights
                             </h2>
                             <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Track and improve your virtual trade decisions.
                             </p>
                         </div>
                     </div>

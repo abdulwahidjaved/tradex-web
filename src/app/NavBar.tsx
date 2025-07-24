@@ -21,7 +21,7 @@ const Navbar = () => {
               <span className="h-6 aspect-square bg-blue-600 dark:bg-blue-500 rounded-full flex" />
               <span className="h-6 aspect-square bg-pink-600 dark:bg-pink-400 blur rounded-full flex" />
             </div>
-            <span className="text-lg text-gray-700 dark:text-gray-300">Agency</span>
+            <span className="text-lg text-gray-700 dark:text-gray-300">TradeX</span>
           </Link>
 
           <div className={`fixed inset-x-0 h-[100dvh] lg:h-max top-0 lg:translate-y-0 lg:opacity-100 left-0 bg-white dark:bg-gray-950 lg:!bg-transparent py-32 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 w-full lg:top-0 lg:relative  lg:flex lg:justify-between duration-300 ease-linear ${openNavbar ? "" : " -translate-y-10 opacity-0 invisible lg:visible"}`}>

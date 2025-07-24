@@ -29,11 +29,11 @@ const footerItems: FooterItemProps[] = [
   },
   {
     text: "Contact Us",
-    link: "/contactUs",
+    link: "/contactus",
   },
   {
     text: "About Us",
-    link: "/aboutUs",
+    link: "/aboutus",
   },
 ];
 

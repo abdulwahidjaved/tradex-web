@@ -1,6 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "./../../../components/ui/sidebar";
+import { useRouter } from "next/navigation";
+import {
+  Sidebar,
+  SidebarBody,
+  SidebarLink,
+} from "./../../../components/ui/sidebar";
 import {
   IconArrowLeft,
   IconBrandTabler,
@@ -11,6 +16,9 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export function SidebarDemo() {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+
   const links = [
     {
       label: "Dashboard",
@@ -41,12 +49,20 @@ export function SidebarDemo() {
       ),
     },
   ];
-  const [open, setOpen] = useState(false);
+
+  const handleLinkClick = (label: string) => {
+    if (label === "Logout") {
+      // Clear localStorage and redirect to login
+      localStorage.removeItem("user");
+      router.replace("/home");
+    }
+  };
+
   return (
     <div
       className={cn(
-        "mx-auto flex w-screen  flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800",
-        "h-screen", // for your use case, use `h-screen` instead of `h-[60vh]`
+        "mx-auto flex w-screen flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800",
+        "h-screen"
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
@@ -55,7 +71,11 @@ export function SidebarDemo() {
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
               {links.map((link, idx) => (
-                <SidebarLink key={idx} link={link} />
+                <SidebarLink
+                  key={idx}
+                  link={link}
+                  onClick={() => handleLinkClick(link.label)}
+                />
               ))}
             </div>
           </div>
@@ -82,6 +102,7 @@ export function SidebarDemo() {
     </div>
   );
 }
+
 export const Logo = () => {
   return (
     <a
@@ -99,6 +120,7 @@ export const Logo = () => {
     </a>
   );
 };
+
 export const LogoIcon = () => {
   return (
     <a
@@ -110,13 +132,12 @@ export const LogoIcon = () => {
   );
 };
 
-// Dummy dashboard component with content
 const Dashboard = () => {
   return (
     <div className="flex flex-1">
       <div className="flex h-full w-full flex-1 flex-col gap-2 rounded-tl-2xl border border-neutral-200 bg-white p-2 md:p-10 dark:border-neutral-700 dark:bg-neutral-900">
         <div className="flex gap-2">
-          {[...new Array(4)].map((i, idx) => (
+          {[...new Array(4)].map((_, idx) => (
             <div
               key={"first-array-demo-1" + idx}
               className="h-20 w-full animate-pulse rounded-lg bg-gray-100 dark:bg-neutral-800"
@@ -124,7 +145,7 @@ const Dashboard = () => {
           ))}
         </div>
         <div className="flex flex-1 gap-2">
-          {[...new Array(2)].map((i, idx) => (
+          {[...new Array(2)].map((_, idx) => (
             <div
               key={"second-array-demo-1" + idx}
               className="h-full w-full animate-pulse rounded-lg bg-gray-100 dark:bg-neutral-800"
