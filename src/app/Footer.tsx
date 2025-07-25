@@ -46,7 +46,7 @@ const FooterBlock = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-800 to-indigo-400 font-bold text-2xl">
               U
             </span>
-            Unify-Ui
+            TradeX
           </Link>
         </div>
         <nav>

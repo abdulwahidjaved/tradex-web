@@ -27,8 +27,13 @@ const Navbar = () => {
           <div className={`fixed inset-x-0 h-[100dvh] lg:h-max top-0 lg:translate-y-0 lg:opacity-100 left-0 bg-white dark:bg-gray-950 lg:!bg-transparent py-32 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 w-full lg:top-0 lg:relative  lg:flex lg:justify-between duration-300 ease-linear ${openNavbar ? "" : " -translate-y-10 opacity-0 invisible lg:visible"}`}>
             <ul className="flex flex-col lg:flex-row gap-6 lg:items-center text-gray-700 dark:text-gray-300 lg:w-full lg:justify-center">
               {["Home", "Features", "Contact Us", "About Us"].map((text, i) => (
-                <li key={i}>
-                  <Link href={`/${text.replace(/\s+/g, "").toLowerCase()}`} className="relative py-2.5 duration-300 ease-linear hover:text-blue-600">{text}</Link>
+                <li key={i} className="transition-transform duration-300 ease-in-out hover:-translate-y-1">
+                  <Link
+                    href={`/${text.replace(/\s+/g, "").toLowerCase()}`}
+                    className="relative py-2.5 hover:text-blue-600"
+                  >
+                    {text}
+                  </Link>
                 </li>
               ))}
             </ul>
