@@ -26,7 +26,7 @@ const Section1: React.FC = () => {
           ].map(({ title, text }, i) => (
             <div
               key={i}
-              className="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-950 shadow"
+              className="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-950 shadow transition-transform duration-300 hover:-translate-y-2"
             >
               <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
                 {title}
@@ -39,7 +39,7 @@ const Section1: React.FC = () => {
         </div>
 
         {/* Send a Message Form */}
-        <div className="bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-950 p-6 sm:p-10 rounded-2xl shadow space-y-10">
+        <div className="bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-950 p-6 sm:p-10 rounded-2xl shadow space-y-10 transition-transform duration-300 hover:-translate-y-2">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white text-center">
             Send Us a Message
           </h2>

@@ -39,7 +39,7 @@ const ServiceCard = ({
         <p className="text-gray-700 dark:text-gray-300 text-justify line-clamp-3">
           {description}
         </p>
-        <Link
+        {/* <Link
           href="#"
           className="text-sky-700 dark:text-sky-400 flex items-center gap-x-3 w-max"
         >
@@ -56,7 +56,7 @@ const ServiceCard = ({
               clipRule="evenodd"
             />
           </svg>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
@@ -66,31 +66,31 @@ const ServiceCard = ({
 const services: Service[] = [
   {
     id: 1,
-    title: "Service name 1",
+    title: " Custom Strategy Builder",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deserunt culpa autem",
-    icon: "/images/icons/web-development.svg",
+      "Design and deploy trading strategies with zero coding using our visual rule-based builder.",
+    icon: "/services.png",
   },
   {
     id: 2,
-    title: "Service name 2",
+    title: "Secure Cloud Backtesting",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deserunt culpa autem",
-    icon: "/images/icons/seo.svg",
+      "Run thousands of historical simulations on the cloud to validate your trading strategies fast.",
+    icon: "/services.png",
   },
   {
     id: 3,
-    title: "Service name 3",
+    title: "Real-Time Risk Alerts",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deserunt culpa autem",
-    icon: "/images/icons/web-development.svg",
+      "Get instant notifications when your portfolio crosses custom thresholds or risk profiles.",
+    icon: "/services.png",
   },
   {
     id: 4,
     title: "Service name 4",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto deserunt culpa autem",
-    icon: "/images/icons/seo.svg",
+    icon: "/services.png",
   },
 ];
 
@@ -109,8 +109,7 @@ const Features = () => {
             </h1>
           </div>
           <p className="text-gray-700 dark:text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+            Trade, learn, simulate, and grow with virtual markets.          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 md:gap-10">

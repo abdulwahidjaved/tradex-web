@@ -28,7 +28,7 @@ type BlogCardProps = {
 
 const BlogCard: React.FC<BlogCardProps> = ({ cover, published_date, category, author, title }) => {
   return (
-    <div className="bg-white dark:bg-gray-950 shadow-lg shadow-gray-200/50 dark:shadow-transparent border border-gray-200/50 dark:border-gray-800/50">
+    <div className="bg-white dark:bg-gray-950 shadow-lg shadow-gray-200/50 dark:shadow-transparent border border-gray-200/50 dark:border-gray-800/50 transition-transform transform hover:-translate-y-2 hover:shadow-xl">
       <Image
         src={cover}
         alt={title || 'Blog image'}
@@ -53,7 +53,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ cover, published_date, category, au
         {title && (
           <h1 className="text-xl my-6 font-semibold text-gray-900 dark:text-white">{title}</h1>
         )}
-        <Link
+        {/* <Link
           href="#"
           className="text-blue-600 dark:text-blue-500 transition hover:text-opacity-90 flex items-center gap-x-3 group"
         >
@@ -68,7 +68,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ cover, published_date, category, au
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
@@ -77,7 +77,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ cover, published_date, category, au
 const posts: BlogPost[] = [
   {
     id: 1,
-    cover: "/images/working-on-housing-project.jpg",
+    cover: "/trading.png",
     published_date: {
       day: "10",
       month: "May",
@@ -88,7 +88,7 @@ const posts: BlogPost[] = [
   },
   {
     id: 2,
-    cover: "/images/working-on-housing-project.jpg",
+    cover: "/trading.png",
     published_date: {
       day: "10",
       month: "May",
@@ -99,11 +99,14 @@ const posts: BlogPost[] = [
   },
   {
     id: 3,
-    cover: "/images/working-on-housing-project.jpg",
+    cover: "/trading.png",
     published_date: {
       day: "10",
       month: "May",
     },
+    category: "categoryName",
+    author: "John Doe",
+    title: "Here are some good ways to write type-safe support attacks.",
   },
 ];
 
@@ -116,8 +119,7 @@ const BlogSection: React.FC = () => {
             Our most recent Articles
           </h1>
           <p className="text-gray-700 dark:text-gray-300">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit perferendis eos amet eum repudiandae aspernatur mollitia quos consectetur voluptatibus pariatur.
-          </p>
+            Stay updated with expert insights, trading tips, and market strategies — all designed to help you level up your virtual trading game.          </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.slice(0, 3).map((post) => (
@@ -125,7 +127,7 @@ const BlogSection: React.FC = () => {
           ))}
         </div>
         <div className="flex justify-center">
-          <Link
+          {/* <Link
             href="#"
             className="px-5 py-2.5 border border-gray-100 dark:border-gray-900 text-blue-600 dark:text-gray-300 flex items-center gap-x-3"
           >
@@ -140,7 +142,7 @@ const BlogSection: React.FC = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>

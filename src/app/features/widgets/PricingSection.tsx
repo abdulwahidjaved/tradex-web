@@ -52,7 +52,7 @@ const PricingSection: React.FC = () => {
             {pricingPlans.map(({ id, title, price, features, popular }) => (
               <div
                 key={id}
-                className={`relative p-8 border rounded-2xl shadow-sm transition hover:shadow-lg ${
+                className={`relative p-8 border rounded-2xl shadow-sm transition-transform duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl ${
                   popular
                     ? 'border-blue-600 dark:border-blue-500 bg-blue-50/20 dark:bg-blue-950/10'
                     : 'border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900'

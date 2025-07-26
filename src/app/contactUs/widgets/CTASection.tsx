@@ -22,8 +22,7 @@ const CtaSection = () => {
               developers
             </h1>
             <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eligendi, doloremque velit excepturi.
-            </p>
+              Learn the markets, sharpen your strategies, and trade with confidence — all in a safe, simulated environment.            </p>
 
             <form
               onSubmit={(e) => e.preventDefault()}
