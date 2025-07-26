@@ -12,6 +12,13 @@ const Navbar = () => {
 
   const toggleNavbar = () => setOpenNavbar((prev) => !prev);
 
+  const navItems = [
+    { text: "Home", href: "/" },
+    { text: "Features", href: "/features" },
+    { text: "Contact Us", href: "/contactUs" }, // ✅ Match your folder name exactly
+    { text: "About Us", href: "/aboutUs" },
+  ];
+
   return (
     <>
       <header className="absolute left-0 top-0 w-full flex items-center h-24 z-40">
@@ -24,20 +31,23 @@ const Navbar = () => {
             <span className="text-lg text-gray-700 dark:text-gray-300">TradeX</span>
           </Link>
 
-          <div className={`fixed inset-x-0 h-[100dvh] lg:h-max top-0 lg:translate-y-0 lg:opacity-100 left-0 bg-white dark:bg-gray-950 lg:!bg-transparent py-32 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 w-full lg:top-0 lg:relative  lg:flex lg:justify-between duration-300 ease-linear ${openNavbar ? "" : " -translate-y-10 opacity-0 invisible lg:visible"}`}>
+          {/* Menu Items */}
+          <div
+            className={`fixed inset-x-0 h-[100dvh] lg:h-max top-0 lg:translate-y-0 lg:opacity-100 left-0 bg-white dark:bg-gray-950 lg:!bg-transparent py-32 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 w-full lg:top-0 lg:relative  lg:flex lg:justify-between duration-300 ease-linear ${
+              openNavbar ? "" : " -translate-y-10 opacity-0 invisible lg:visible"
+            }`}
+          >
             <ul className="flex flex-col lg:flex-row gap-6 lg:items-center text-gray-700 dark:text-gray-300 lg:w-full lg:justify-center">
-              {["Home", "Features", "Contact Us", "About Us"].map((text, i) => (
+              {navItems.map(({ text, href }, i) => (
                 <li key={i} className="transition-transform duration-300 ease-in-out hover:-translate-y-1">
-                  <Link
-                    href={`/${text.replace(/\s+/g, "").toLowerCase()}`}
-                    className="relative py-2.5 hover:text-blue-600"
-                  >
+                  <Link href={href} className="relative py-2.5 hover:text-blue-600">
                     {text}
                   </Link>
                 </li>
               ))}
             </ul>
 
+            {/* Auth Buttons */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 lg:min-w-max mt-10 lg:mt-0">
               <button
                 onClick={() => setShowLogin(true)}
@@ -54,11 +64,25 @@ const Navbar = () => {
             </div>
           </div>
 
+          {/* Mobile Toggle */}
           <div className="flex items-center lg:hidden">
-            <button onClick={toggleNavbar} className="outline-none border-l border-l-purple-100 dark:border-l-gray-800 pl-3 relative py-3">
+            <button
+              onClick={toggleNavbar}
+              className="outline-none border-l border-l-purple-100 dark:border-l-gray-800 pl-3 relative py-3"
+            >
               <span className="sr-only">Toggle navbar</span>
-              <span aria-hidden="true" className={`flex h-0.5 w-6 rounded bg-gray-800 dark:bg-gray-300 transition duration-300 ${openNavbar ? "rotate-45 translate-y-[0.33rem]" : ""}`} />
-              <span aria-hidden="true" className={`flex mt-2 h-0.5 w-6 rounded bg-gray-800 dark:bg-gray-300 transition duration-300 ${openNavbar ? "-rotate-45 -translate-y-[0.33rem]" : ""}`} />
+              <span
+                aria-hidden="true"
+                className={`flex h-0.5 w-6 rounded bg-gray-800 dark:bg-gray-300 transition duration-300 ${
+                  openNavbar ? "rotate-45 translate-y-[0.33rem]" : ""
+                }`}
+              />
+              <span
+                aria-hidden="true"
+                className={`flex mt-2 h-0.5 w-6 rounded bg-gray-800 dark:bg-gray-300 transition duration-300 ${
+                  openNavbar ? "-rotate-45 -translate-y-[0.33rem]" : ""
+                }`}
+              />
             </button>
           </div>
         </nav>

@@ -33,7 +33,7 @@ const footerItems: FooterItemProps[] = [
   },
   {
     text: "About Us",
-    link: "/aboutU  s",
+    link: "/aboutUs",
   },
 ];
 
